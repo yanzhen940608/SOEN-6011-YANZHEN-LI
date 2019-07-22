@@ -1,0 +1,252 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{fullpage}
+\usepackage[top=1cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage[noend]{algorithmic}
+\usepackage{setspace}
+\usepackage{clrscode3e}
+
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=blue,
+  linkbordercolor={0 0 1}
+}
+ 
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+
+\lstdefinestyle{Python}{
+    language        = Python,
+    frame           = lines, 
+    basicstyle      = \footnotesize,
+    keywordstyle    = \color{blue},
+    stringstyle     = \color{green},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+
+% Edit these as appropriate
+\newcommand\hwnumber{1}                 
+
+\pagestyle{fancyplain}
+\headheight 35pt
+\lhead{\NetIDa}
+\lhead{\NetIDa\\\NetIDb}
+\lhead{YANZHEN LI}
+\lhead{ID:40054428}
+\chead{\textbf{\Large SOEN6011 Team F}}
+\rhead{YANZHEN LI}
+\lfoot{}
+\cfoot{}
+\rfoot{\small\thepage}
+
+\headsep 1.0em
+\usepackage{cite}
+\usepackage{tikz}
+\usepackage{color}
+\begin{document}
+
+\section*{Problem 1}
+
+Logarithmic function : f(x) = \log_{b}X}
+
+
+\begin{figure}[h]
+
+\begin{tikzpicture}
+\draw[->](-2.2,0)--(2.2,0)node[left,below,font=\tiny]{$x$};
+\draw[->](0,-3.2)--(0,3.2)node[right,font=\tiny]{$y$};
+\foreach \x in {-1,0,1}{\draw(\x,0)--(\x,0.05)node[below,outer sep=2pt,font=\tiny]at(\x,0){\x};}
+\draw[color=blue, thick,domain=0:3]plot(\x,{log10(\x)});
+\draw[color=red, thick,domain=0:3]plot(\x,{log10(\x)/log10(0.1)});
+\end{tikzpicture}
+\end{figure}
+\hspace{0.2cm}{\qquad\color{blue} BLUE LINE}
+: f(x) = \log_{10}X
+{\qquad \color{red} RED LINE}
+: f(x) = \log_{0.5}X\\
+
+\hspace{0.9cm} DOMAIN:\quad b:(0,1)\cup(1,+\infty)\quad X:(0,+\infty)\\
+
+\hspace{0.9cm} CO-DOMAIN:\quad\mathbb{R}\\
+\begin{enumerate}
+CHARACTERISTICS:\\
+    \\
+    Fixed point: Function image is always over fixed point (1,0).\\
+    \\
+    Monotonicity: when a\textgreater1, it is a monotonic increasing function in the 
+    \\
+    domain of definition.\\ 
+    \\
+    Parity: Non-odd and Non-even Functions\\
+    \\  
+    Periodicity: not a periodic function\\
+    \\
+    Symmetry: None\\
+    \\
+    Null point: X=1\\
+\end{enumerate}
+\section*{Problem 2}
+\begin{flushleft}
+		\large\textbf{1. Problem description}
+	\end{flushleft}
+		 Develop a Java system to calculate the result for the Logarithmic function : f(x) = \log_{b}X}.
+		
+	\begin{flushleft}
+		\large\textbf{2. Requirements}
+	\end{flushleft}
+	
+	\begin{itemize}
+	    {a .}When the system starts, the console should display the function name and allow the user to select the logarithmic function.\\
+	    \\
+	    -Type attribute: Functional\\
+	    \\
+		{b .} The primary requirement to the function is to have only two number value as input to the function.\\
+		\\
+		-Type attribute: Design Constraints\\
+		\\
+		{c .} In case any other form of input is given, the program should prompt an effective error message to the user.\\
+		\\
+		-Type attribute: Functional\\
+		\\
+		{d .} The function accepts only a real number as its input argument. Hence, it is the responsibility of the program/function to change the illegal input to the desired input needed for it to work efficiently.\\
+		\\
+		-Type attribute: Design Constraints
+		\\
+		\\
+		{e .}If the base is valid, the system should ask the user
+        to input the value for variable and set it.\\
+        \\
+        -Type attribute: Functional\\
+        \\
+        {f.}If the variable is valid, the system should calculate
+        the logarithm of in base without relying on java built-in functions, and store the result.\\
+        \\
+        -Type attribute: Functional\\
+        \\
+        {g .}After the calculation completes, the system should display the result on the console.\\
+        \\
+        -Type attribute: Functional\\
+        \\
+        {h. }The calculation result shall be accurate to 6 decimal places.\\
+        \\
+        -Type attribute: Performance\\
+        
+	\end{itemize}
+		
+	\begin{flushleft}
+		\large\textbf{3. Constraints}
+	\end{flushleft}
+    There are few constraints that need to be followed:
+		
+		\begin{itemize}
+			{a .} Apart from the functions related to input, output and arithmetic, use of any built-in functions provided in Java is prohibited. \\
+			\\
+			{b .} The domain of f(x) is b : (0,1)\cup(1,+\infty)\quad X:(0,+\infty)\\   
+			\\
+		\end{itemize}
+	\begin{flushleft}
+		\large\textbf{4. Assumptions}
+	\end{flushleft}
+	    \begin{itemize}
+			{a .} We assume that the user interface will be text-based, depending on console input and output. \\
+			\\
+			{b .} User gives input for both X and a value. \\
+			\\
+			{c .} The 'Java system' refers to the scientific calculator\\
+			\\
+			{d .} Users may enter illegal characters such as letters or non-real numbers..\\
+		\end{itemize}
+	
+	\begin{flushleft}
+		\large\textbf{5. References}
+	\end{flushleft}
+		\begin{enumerate}
+			{a .}Shapiro, J. F., & Shapiro, J. F. (1979). Mathematical programming: structures and algorithms (No. 04; QA402. 5, S4.). New York: Wiley.\\
+			\\
+			{b .} Riddhi, D. (2008). Beta function and its applications. The University of Tennesse, Knoxville, USA.[online] Available from: http://sces.phys.utk.edu/moreo/mm08/Riddi\\
+			\\
+			{c .}Olver, F. W., Lozier, D. W., Boisvert, R. F., Clark, C. W. (Eds.). (2010). NIST handbook of mathematical functions hardback and CD-ROM. Cambridge university press.
+
+		\end{enumerate}
+\newpage
+\section*{Problem 3}
+\newline
+\begin{codebox}
+	\Procname{$\proc{recursive algorithm - Logarithmic function} - mylog(nk,x,y,N)$}
+	\li x = (q - 1) / (q + 1)
+	\li z = (w - 1) / (w + 1)
+	\li nk = 2 * N + 1
+	\li y = 1.0 / nk
+	\li if $(N = 0)$ 
+	\li \quad res = 2.0 * x * y  
+	\li else
+	\li \quad nk = nk - 2
+	\li \quad y = 1.0 / nk + x * x * y
+	\li \quad mylog(nk,x,y,N-1)
+	\li end if
+	\li return res
+	\li mylog(nk, z, y, N) / mylog(nk, x, y, N)
+	\End
+\end{codebox}
+
+\begin{codebox}
+	\Procname{$\proc{iterative algorithm - Logarithmic function} - mylog(a)$}
+	\li x = (a - 1) / (a + 1)
+	\li nk = 2 * N + 1
+	\li y = 1.0 / nk
+	\li \For $k \gets N$ \To $0$
+	\li	\quad nk = nk - 2
+	\li \quad y = 1.0 / nk + x * x * y
+	\li end \For
+	\li return 2.0 * x * y
+	\li mylog(w) / mylog(q)
+	\End
+\end{codebox}
+
+\subsection*{Advantages and Disadvantages}
+\subsubsection*{RECURSIVE ALGORITHM:}\\
+Advantages:\\
+1. Recursion is easy to understand, and it is easy to read. For code, using recursion is much clear than loop.\\
+2. Recursion has higher maintainability than loop.\\
+\\
+Disadvantages:\\
+1. When using recursion, it needs system continuously allocates memory space, it has a bad effect on efficiency. \\
+2. Recursion could lead the problem of memory overflow, when the input number is very large, the program may have an error.
+\\
+\\
+\subsubsection*{ITERATIVE ALGORITHM:}\\
+Advantages:\\
+1. Iterative could avoid memory overflow of input.The value of input is unrestricted.\\
+2. Iterative needs less time to execute. Besides that, it also use less memory .\\
+\\
+Disadvantages:\\
+1. The structure pf iterative is more complex than recursion. It is weak in readability, because of its complex code structure.
+\subsubsection*{CONCLUSION}\\
+
+\\
+I used Taylor's expansion as the basic idea. Because Taylor's expansion is especially for ln(X), so I also used the formula of change of base of logarithms, so that I could calculate the logarithm with any number as the base.\\
+
+After comparing with advantages and disadvantages of two algorithm, I decide to use loop, because when I loop, the input is unlimited in domain, but recursion is not. Besides, the loop has better efficiency on executing and it is important to users. As a result, the loop is more suitable for this function.\\
+\\
+Taylor's expansion:\quad ln(1+X)=x-(x^2/2)+(x^3/3)-.....for|x|\leq1
+\\
+\\
+Formula of change of base of logarithms:\quad \log_{b}X}=\log_{a}X}/\log_{a}b}\\
+\\
+
+
+
+\end{document}
