@@ -1,0 +1,141 @@
+\usepackage [numbers,sort&compress]{natbib}
+\usepackage{graphicx}
+\documentclass[12pt,letterpaper]{article}
+\usepackage{fullpage}
+\usepackage[top=1.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage[noend]{algorithmic}
+\usepackage{setspace}
+\usepackage{clrscode3e}
+
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=blue,
+  linkbordercolor={0 0 1}
+}
+ 
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+
+\lstdefinestyle{Python}{
+    language        = Python,
+    frame           = lines, 
+    basicstyle      = \footnotesize,
+    keywordstyle    = \color{blue},
+    stringstyle     = \color{green},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+
+% Edit these as appropriate
+\newcommand\hwnumber{1}                 
+
+\pagestyle{fancyplain}
+\headheight 35pt
+\lhead{\NetIDa}
+\lhead{\NetIDa\\\NetIDb}
+\lhead{YANZHEN LI}
+\lhead{ID:40054428}
+\chead{\textbf{\Large SOEN6011 Team F}}
+\rhead{YANZHEN LI}
+\lfoot{}
+\cfoot{}
+\rfoot{\small\thepage}
+
+\headsep 1.0em
+\usepackage{cite}
+\usepackage{tikz}
+\usepackage{color}
+\title{Assignment Name}
+
+
+\begin{document}
+https://github.com/yanzhen940608/YANZHENLISOEN6011
+\section*{Problem 5 (review for function 5 ----- Gamma(x))}
+\section{ Manually Review ----- Code Review Checklist}
+\subsection{Checklist}
+
+\begin{center}
+\begin{tabular}{|l|l|p{4cm}|}
+\hline
+\multirow{}{General}
+ &Is the code working properly?& It works properly \\\cline{2-3}
+ &Has the expected function been achieved?&The Gamma(x) has been implemented successfully.\\\cline{2-3}
+ &Is the logic correct?& Yes\\\cline{2-3}
+ &Does the code conform to the Google style?&After checked on Checkstyle,there is no problem\\\cline{2-3}
+ &Is the code as modular as possible?&Yes\\\cline{2-3}
+ &Is there redundant or duplicated code? &No\\
+ \hline
+\multirow{}{}{Security}
+ &Has the input of the data been checked?&Yes\\\cline{2-3}
+ &Whether the output value has been checked&Yes\\\cline{2-3}
+ &Whether there has exception handling;&Yes,the coder used try catch block in the main function. \\\cline{2-3}
+ &Is there any conditional validation?& Yes,for example,the coder consider when X is special character not the number\\\cline{2-3}
+ &Are there boundary cases handled?&Yes,for example,the coder considerd when X= -1 \\\cline{2-3}
+ &Can invalid parameters be handled?&Yes\\
+\hline
+\multirow{}{}{Comments}
+ &Are there any comments describe the intent of the code?& Yes,the comment is clear and easy to understand.\\\cline{2-3}
+ &Are there descriptions of boundary conditions?& Yes.\\\cline{2-3}
+ & Are all functions have comments? & Every function has their own comment.  \\
+
+\hline
+\multirow{}{}{Others}
+ &Is the code scalable? & Yes
+ \\\cline{2-3}
+ &Is there a performance risk?& No \\\cline{2-3}
+ &Whether Safety Control is Satisfied& Yes \\
+\hline
+
+\end{tabular}
+\end{center}
+
+\clearpage
+\pagenumbering{arabic}
+
+\section{Automatically Review ------ Codacy}
+\subsection{Introduction of the tool}
+Codacy is an automatic code review service developed by the Portuguese development team. It helps developers to find bugs in code in time and improve the quality of software operation. It mainly includes code quality, grammar specification and functional usability checks.
+\subsection{Results from the review of automated tools}
+Two small defects found by Codacy:\\
+\\
+ \textbf{A.}  Use explicit scoping instead of the default package private level\\
+ \\
+FOR EXAMPLE:\\
+public class GammaX \{\\
+static double PI = 3.14159265358979323846264338327950288419716;\\
+
+ \textbf{B.} Avoid reassigning parameters such as 'x':\\
+ \\
+ FOR EXAMPLE:\\
+ public static double exp(double x) \{\\
+ .....\\
+ \}\\
+ \\
+ public static double sine(double x) \{\\
+ .....\\
+  \}
+\section{Review Result}
+In overall,the source code is proved to be good-performed with satisfied exception handling based on both reviews.Although there has two small defects,the whole quality of source code is still at high-level.
+
+\begin{thebibliography}{3}
+\bibitem{Code Review Checklist}
+Code Review Checklist\\
+{Rong, G., Li, J., Xie, M., & Zheng, T. (2012, April). The effect of checklist in code review for inexperienced students: An empirical study. In 2012 IEEE 25th Conference on Software Engineering Education and Training (pp. 120-124). IEEE.}
+\bibitem{Codacy}
+Codacy\\
+{Brígido, T. (2018). The value of a user for codacy (Doctoral dissertation).}
+\end{thebibliography}
+\end{document}
